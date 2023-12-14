@@ -42,13 +42,9 @@ function onClick() {
 
 function startTimer(pickedDate) {
   createTimer(pickedDate);
-  timerId = setInterval(() => {
+  interval = setInterval(() => {
     createTimer(pickedDate);
   }, 1000);
-}
-
-function stopInterval() {
-  clearInterval(timerId);
 }
 
 function createTimer(pickedDate) {
@@ -64,8 +60,7 @@ function createTimer(pickedDate) {
     secondsLeft.textContent = `${addLeadingZero(timeLeft.seconds)}`;
   } else {
     Notiflix.Notify.success('Timer is over');
-    stopInterval();
-    // clearInterval(timerId);
+    clearInterval(interval);
   }
 }
 
