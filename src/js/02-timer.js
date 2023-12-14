@@ -47,6 +47,10 @@ function startTimer(pickedDate) {
   }, 1000);
 }
 
+function stopInterval() {
+  clearInterval(timerId);
+}
+
 function createTimer(pickedDate) {
   startBtn.disabled = true;
   let currentDate = new Date();
@@ -60,7 +64,8 @@ function createTimer(pickedDate) {
     secondsLeft.textContent = `${addLeadingZero(timeLeft.seconds)}`;
   } else {
     Notiflix.Notify.success('Timer is over');
-    clearInterval(timerId);
+    stopInterval();
+    // clearInterval(timerId);
   }
 }
 
